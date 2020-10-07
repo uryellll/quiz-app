@@ -1,10 +1,12 @@
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
-const choices =document.getElementById("choices");
+const choice =document.getElementsByClassName("choices");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
+const endContainer = document.getElementById("endContainer");
+const scoreBoard = document.getElementById("scoreBoard");
 
 let questions = [
     {
@@ -23,23 +25,57 @@ let questions = [
     }
 ];
 
-const lastQuestion = questions.length - 1;
-let runningQuestion = 0;
+// Start Button
 
-document.getElementById("start-button").addEventListener("click", function(){
+document.getElementById("start").addEventListener("click", function(){
     start.style.display ="none";
     quiz.style.display = "block";
-    choices.style.display = "block";
     renderQuestion();
 }); 
+
+// Displaying Questions
+
+const lastQuestion = questions.length - 1;
+let runningQuestion = 0;
 
 function renderQuestion(){
     let q = questions[runningQuestion];
     question.innerHTML = "<p>" + q.question + "</p>";
-    choiceA.innerHTML = "<p>" + q.choiceA + "</p>";
-    choiceB.innerHTML = "<p>" + q.choiceB + "</p>";
-    choiceC.innerHTML = "<p>" + q.choiceC + "</p>";
+    choiceA.innerText = q.choiceA;
+    choiceB.innerText = q.choiceB;
+    choiceC.innerText = q.choiceC;
 };
 
+// Checking Answers
+
+let score = 0;
+
+function checkAnswer(answer){
+    if(answer == questions[runningQuestion].correct){
+        score++;
+    } else {
+    }
+    if(runningQuestion < lastQuestion){
+        runningQuestion++;
+        renderQuestion();
+    } else {
+        previewScore();
+    }
+};
+
+// Preview score
+function previewScore(){
+    quiz.style.display = "none";
+    endContainer.style.display = "flex";
+    scoreBoard.innerText = score;
+    console.log(score);
+};
+
+// reset game
+function playGame(){
+    endContainer.style.display = "none";
+    score = 0;
+    start.style.display = "block";
+};
 
 

@@ -8,7 +8,9 @@
 
 body {
     background: #0f3057;
+    color: #ffffff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
 }
 
 p {
@@ -39,6 +41,69 @@ p {
                 -20px -20px 60px #133c6c;
 }
 
-.quiz, .choices, .scoreContainer {
+.start:hover {
+    color: #0f3057;
+    background: #ffffff;
+}
+
+.quiz, .choices, .endContainer {
     display: none;
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    width: 500px;
+    height: 50px;
+}
+
+.choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 10px;
+    border-radius: 42px;
+    background: #00587a;
+}
+
+.choice:hover {
+    color: #00587a;
+    background: white;
+    cursor: pointer;
+}
+
+#A {
+    width: 150px;
+    height: 50px;
+}
+
+#B {
+    width: 150px;
+    height: 50px;
+}
+
+#C {
+    width: 150px;
+    height: 50px;
+}
+
+.endContainer {
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 10rem;
+    color: #ffffff;
+    border: dashed 2px #008891;
+    width: 200px;
+    height: 200px;
 }
