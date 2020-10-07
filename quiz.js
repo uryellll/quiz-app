@@ -7,6 +7,7 @@ const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const endContainer = document.getElementById("endContainer");
 const scoreBoard = document.getElementById("scoreBoard");
+const playAgain = document.getElementById("playAgain");
 
 let questions = [
     {
@@ -28,7 +29,7 @@ let questions = [
 // Start Button
 
 document.getElementById("start").addEventListener("click", function(){
-    start.style.display ="none";
+    start.style.display = "none";
     quiz.style.display = "block";
     renderQuestion();
 }); 
@@ -68,14 +69,12 @@ function previewScore(){
     quiz.style.display = "none";
     endContainer.style.display = "flex";
     scoreBoard.innerText = score;
-    console.log(score);
 };
 
 // reset game
-function playGame(){
-    endContainer.style.display = "none";
+playAgain.addEventListener("click", function(){
+    start.style.display = "";
     score = 0;
-    start.style.display = "block";
-};
-
-
+    runningQuestion = 0;
+    endContainer.style.display = "none";
+});

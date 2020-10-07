@@ -91,9 +91,12 @@ p {
 }
 
 .endContainer {
+    flex-direction: column;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: dashed 2px #008891;
 }
 
 .scoreBoard {
@@ -103,7 +106,6 @@ p {
     text-align: center;
     font-size: 10rem;
     color: #ffffff;
-    border: dashed 2px #008891;
     width: 200px;
     height: 200px;
 }
